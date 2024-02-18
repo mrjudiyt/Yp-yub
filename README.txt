@@ -16,7 +16,7 @@ CC 3.0 All of the site templates we create for WebThemez are licensed under the 
 Credits :
 --------- 
 
-=> Design & developed: "WebThemez"  http://webthemez.com 
+=> Design & developed: "YUBRAJ PANDEYA"  https://yubrajpandeya.com.np
 => Bootstrap : http://getbootstrap.com/
 => Fontawesome : https://fortawesome.github.io/Font-Awesome/
 => Fonts : https://www.google.com/fonts
