@@ -23,7 +23,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       this.init = function() {
         _this.options = $.extend({}, $.countdown.defaultOptions, options);
 
-        // Set the date option to one week from now
+        // Set the target date to one week from now
         var oneWeekFromNow = new Date();
         oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
         _this.options.date = oneWeekFromNow;
@@ -33,6 +33,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
             return _this.render();
           }, _this.options.refresh);
         }
+
         _this.render();
         return _this;
       };
@@ -120,7 +121,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       refresh: 1000,
       onEnd: $.noop,
       render: function(date) {
-        return $(this.el).html("" + date.years + " years, " + date.days + " days, " + (this.leadingZeros(date.hours)) + " hours, " + (this.leadingZeros(date.min)) + " min and " + (this.leadingZeros(date.sec)) + " sec");
+        return $(this.el).html("" + date.years + " years, " + date.days + " days, " + (_this.leadingZeros(date.hours)) + " hours, " + (_this.leadingZeros(date.min)) + " min and " + (_this.leadingZeros(date.sec)) + " sec");
       }
     };
     $.fn.countdown = function(options) {
