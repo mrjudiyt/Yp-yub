@@ -1,31 +1,25 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the email from the form
+    $email = $_POST["Email"];
 
-## CONFIG ##
+    // Validate the email (you might want to perform more thorough validation)
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Send the email to the specified address
+        $to = "sahastraling12@gmail.com";
+        $subject = "New Subscription";
+        $message = "New email subscription: $email";
+        $headers = "From: yubrajpandeya23s@ccrc.edu.np"; // Replace with your own email or leave it empty
 
-# LIST EMAIL ADDRESS
-$recipient = "sahastraling12@gmail.com";
+        // Use the mail() function to send the email
+        mail($to, $subject, $message, $headers);
 
-# SUBJECT (Subscribe/Remove)
-$subject = "Subscribe";
-
-# RESULT PAGE
-$location = "index.html";
-
-## FORM VALUES ##
-
-# SENDER - WE ALSO USE THE RECIPIENT AS SENDER IN THIS SAMPLE
-# DON'T INCLUDE UNFILTERED USER INPUT IN THE MAIL HEADER!
-$sender = $recipient;
-
-# MAIL BODY 
-$body .= "Email: ".$_REQUEST['Email']." \n";
-# add more fields here if required
-
-## SEND MESSGAE ##
-
-mail( $recipient, $subject, $body, "From: $sender" ) or die ("Mail could not be sent.");
-
-## SHOW RESULT PAGE ##
-
-header( "Location: $location" );
+        // Optionally, you can redirect the user after successful submission
+        header("Location: success_page.html");
+        exit;
+    } else {
+        // Handle invalid email address
+        echo "Invalid email address";
+    }
+}
 ?>
