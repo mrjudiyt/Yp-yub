@@ -22,6 +22,9 @@
 	</head>
 	<body> 
 
+		<div class="preloader">
+    <img src="preloader.gif" alt="Loading...">
+		</div>
 <body id="home">
 <div id="large-header" class="large-header">
 					<canvas id="demo-canvas"></canvas> 
@@ -84,7 +87,15 @@
 <script type="text/javascript" src="js/Backstretch.js"></script>
 <script type="text/javascript" src="js/jquery.countdown.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
-
+	
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Hide the preloader
+        var preloader = document.querySelector('.preloader');
+        preloader.style.display = 'none';
+    });
+</script>
+	
 	
 	
 		
