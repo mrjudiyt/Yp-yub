@@ -95,6 +95,33 @@
         preloader.style.display = 'none';
     });
 </script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Show the preloader
+        var preloader = document.querySelector('.preloader');
+        
+        // Get the current timestamp
+        var startTime = performance.now();
+
+        // Function to hide the preloader after at least 2000 milliseconds (2 seconds)
+        function hidePreloader() {
+            var currentTime = performance.now();
+            var elapsedTime = currentTime - startTime;
+
+            // Ensure the preloader is visible for at least 2 seconds but not more than that
+            if (elapsedTime >= 2000) {
+                preloader.style.display = 'none';
+            } else {
+                // Use requestAnimationFrame for smoother animations and to avoid layout thrashing
+                requestAnimationFrame(hidePreloader);
+            }
+        }
+
+        // Call the hidePreloader function
+        hidePreloader();
+    });
+	</script>
+	
 	
 	
 	
